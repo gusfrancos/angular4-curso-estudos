@@ -186,26 +186,6 @@
     }
   ],
   "pedidos": [
-    {
-      "endereco": "teste kd",
-      "numero": "40",
-      "complemento": "dfddf",
-      "formaPagamento": "dinheiro",
-      "id": 1
-    },
-    {
-      "endereco": "teste fd ",
-      "numero": "34",
-      "complemento": "ddfd",
-      "formaPagamento": "debito",
-      "id": 2
-    },
-    {
-      "endereco": "teste",
-      "numero": "454",
-      "complemento": "dfd",
-      "formaPagamento": "debito",
-      "id": 3
-    }
+    
   ]
 }
