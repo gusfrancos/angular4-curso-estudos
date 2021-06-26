@@ -100,11 +100,11 @@ export class OrdemCompraComponent implements OnInit {
     this.pedido.complemento = this.complemento;
     this.pedido.numero = this.numero;
     this.pedido.formaPagamento = this.formaPagamento;
-
-    console.log(this.pedido)
+   
     this.ordemCompraService.efetivarComprar(this.pedido)
     .subscribe((resposta: any) => {
-      this.idPedidoCompra = resposta.id
+      console.log(resposta);
+      this.idPedidoCompra = resposta.id;
     });
   }
 
