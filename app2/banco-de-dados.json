@@ -186,6 +186,18 @@
     }
   ],
   "pedidos": [
-    
+    {
+      "endereco": "teste endereço",
+      "numero": "40",
+      "formaPagamento": "dinheiro",
+      "id": 1
+    },
+    {
+      "endereco": "teste end 2",
+      "numero": "41",
+      "complemento": "comp2",
+      "formaPagamento": "debito",
+      "id": 2
+    }
   ]
 }
