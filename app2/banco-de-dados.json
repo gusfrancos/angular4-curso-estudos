@@ -198,6 +198,13 @@
       "complemento": "comp2",
       "formaPagamento": "debito",
       "id": 2
+    },
+    {
+      "endereco": "teste com dhfhfhf",
+      "numero": "40",
+      "complemento": "35",
+      "formaPagamento": "dinheiro",
+      "id": 3
     }
   ]
 }
