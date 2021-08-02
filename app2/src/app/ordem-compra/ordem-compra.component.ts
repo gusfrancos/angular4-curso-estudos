@@ -12,6 +12,7 @@ import { Pedido } from '../shared/pedido.model'
 })
 export class OrdemCompraComponent implements OnInit {
 
+  public idPedidoCompra: number
   
   public formulario: FormGroup = new FormGroup({
     'endereco': new FormControl(null, [Validators.required, Validators.minLength(3), Validators.maxLength(120)] ),
@@ -27,6 +28,19 @@ export class OrdemCompraComponent implements OnInit {
   }
 
   public confirmarCompra(): void {
-    console.log(this.formulario)
+    if(this.formulario.status === 'VALID'){
+      console.log('formulário valido')
+      let pedido: Pedido = new Pedido(this.formulario.value.endereco, 
+        this.formulario.value.numero, 
+        this.formulario.value.complemento, 
+        this.formulario.value.formaPagamento)
+
+        this.ordemCompraService.efetivarComprar(pedido)
+    .subscribe((resposta: any) => {
+      this.idPedidoCompra = resposta.id;
+      console.log(this.idPedidoCompra);
+    });
+
+    }
   }
 }

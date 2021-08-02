@@ -1,3 +1,5 @@
+
+
 {
   "ofertas": [
     {
@@ -205,6 +207,13 @@
       "complemento": "35",
       "formaPagamento": "dinheiro",
       "id": 3
+    },
+    {
+      "endereco": "dsccdcdf",
+      "numero": "34",
+      "complemento": "df",
+      "formaPagamento": "debito",
+      "id": 4
     }
   ]
 }
