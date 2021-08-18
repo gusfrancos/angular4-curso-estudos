@@ -17,6 +17,9 @@ public incluirItem(oferta: Oferta) {
         oferta.valor,
         1
     )
+
+    //o push inclui uma instancia de itemcarrinho dentro do array
+    this.itens.push(itemCarrinho)
     
     console.log('item Carrinho:', itemCarrinho)
 

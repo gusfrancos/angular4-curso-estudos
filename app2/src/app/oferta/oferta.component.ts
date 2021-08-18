@@ -9,7 +9,7 @@ import 'rxjs/Rx'
   selector: 'app-oferta',
   templateUrl: './oferta.component.html',
   styleUrls: ['./oferta.component.css'],
-  providers: [ OfertasService, CarrinhoService  ]
+  providers: [ OfertasService ]
 })
 export class OfertaComponent implements OnInit, OnDestroy {
 
@@ -27,6 +27,7 @@ export class OfertaComponent implements OnInit, OnDestroy {
 public adicionarItemCarrinho(oferta: Oferta): void {
   console.log(this.oferta)
   this.carrinhoService.incluirItem(oferta);
+  this.carrinhoService.exibirItens();
 }
 
 
