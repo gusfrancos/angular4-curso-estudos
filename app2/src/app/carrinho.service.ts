@@ -10,6 +10,8 @@ public exibirItens() : ItemCarrinho[] {
 }
 
 public incluirItem(oferta: Oferta) {
+
+    console.log("Oferta:" + oferta);
     let itemCarrinho: ItemCarrinho = new ItemCarrinho(
         oferta.id,
         oferta.imagens[0],
