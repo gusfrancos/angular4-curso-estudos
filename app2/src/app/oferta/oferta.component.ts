@@ -38,10 +38,10 @@ public adicionarItemCarrinho(): void {
     this.OfertasService.getOfertasPorId(this.route.snapshot.params['id'])
     .then(( oferta: Oferta ) => {
         this.oferta = oferta
-       
+        console.log("oferta:Component:ngOnInit:" + this.oferta.id + " / " + this.oferta.titulo + " / " ) 
     }).catch((param: any) => (console.log(param)))
 
-    console.log("oferta:Component:ngOnInit:" + this.oferta.id + " / " + this.oferta.titulo + " / " )
+    //console.log("oferta:Component:ngOnInit:" + this.oferta.id + " / " + this.oferta.titulo + " / " )
 
     //console.log('Oferta - Array de itens do carrinho:' + this.carrinhoService.exibirItens())
 
