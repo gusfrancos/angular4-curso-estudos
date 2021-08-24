@@ -25,9 +25,11 @@ export class OfertaComponent implements OnInit, OnDestroy {
 
 
 public adicionarItemCarrinho(): void {
-  console.log(this.oferta)
-  this.carrinhoService.incluirItem(this.oferta);
-  this.carrinhoService.exibirItens();
+  //console.log(this.oferta[0])
+  //console.log("oferta:Component:adicionarItemCarrinho:" + this.oferta[0].id)
+  this.carrinhoService.incluirItem(this.oferta[0]);
+  
+  console.log(this.carrinhoService.exibirItens());
 }
 
 
@@ -38,7 +40,6 @@ public adicionarItemCarrinho(): void {
     this.OfertasService.getOfertasPorId(this.route.snapshot.params['id'])
     .then(( oferta: Oferta ) => {
         this.oferta = oferta
-        console.log("oferta:Component:ngOnInit:" + this.oferta.id + " / " + this.oferta.titulo + " / " ) 
     }).catch((param: any) => (console.log(param)))
 
     //console.log("oferta:Component:ngOnInit:" + this.oferta.id + " / " + this.oferta.titulo + " / " )
