@@ -9,24 +9,72 @@ public exibirItens() : ItemCarrinho[] {
     return this.itens
 }
 
+public adicionarQuantidade(itemCarrinho: ItemCarrinho): void {
+    //verificar se o item em questão jáa não existe no array
+    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id) 
+
+    //o push inclui uma instancia de itemcarrinho dentro do array
+    if(itemCarrinhoEncontrado) {
+        itemCarrinhoEncontrado.quantidade += 1
+    }
+    console.log('Adicionei a quantidade para:', itemCarrinho)
+}
+
+
+public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
+    //verificar se o item em questão jáa não existe no array
+    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id) 
+
+    //o push inclui uma instancia de itemcarrinho dentro do array
+    if(itemCarrinhoEncontrado && itemCarrinhoEncontrado.quantidade !== 0) {
+        itemCarrinhoEncontrado.quantidade -= 1
+    }
+    console.log('Diminui quantidade para:', itemCarrinho)
+}
+
+
+
+
+
 public incluirItem(oferta: Oferta) {
 
     console.log("Oferta:" + oferta);
     let itemCarrinho: ItemCarrinho = new ItemCarrinho(
         oferta.id,
         oferta.imagens[0],
-        oferta.titulo,oferta.descricao_oferta,
+        oferta.titulo,
+        oferta.descricao_oferta,
         oferta.valor,
         1
     )
 
+    //verificar se o item em questão jáa não existe no array
+    let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id) 
+
     //o push inclui uma instancia de itemcarrinho dentro do array
-    this.itens.push(itemCarrinho)
+    if(itemCarrinhoEncontrado === undefined) {
+        this.itens.push(itemCarrinho)
+    } else {
+        itemCarrinhoEncontrado.quantidade += 1
+    }
     
     console.log('item Carrinho:', itemCarrinho)
 
 
 }
+
+
+public totalCarrinhoCompras(): number {
+    
+    let total: number = 0
+
+    this.itens.map((item: ItemCarrinho) => {
+        total =+ (item.valor * item.quantidade)
+    })
+      
+    return total
+}
+
 
 }
 

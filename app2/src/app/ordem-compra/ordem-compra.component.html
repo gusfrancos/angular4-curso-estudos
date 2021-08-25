@@ -18,9 +18,13 @@
         <div>
           <div class="row">
             <div class="col">
-              <button type="button" class="btn btn-link">-</button>
+              <!--Duas formas de fazer - Esta chama diretamente o serviço ComponenteService-->
+    
+              <button (click)="carrinhoService.diminuirQuantidade(item)"  type="button" class="btn btn-link">-</button>
               {{ item.quantidade }} 
-              <button type="button" class="btn btn-link">+</button>
+              
+              <!--Duas formas de fazer - Esta chama um metodo na ondem compra componente que chama o metodo no ComponenteService-->
+              <button (click)="adicionar(item)" type="button" class="btn btn-link">+</button>
             </div>
           </div>
         </div>
@@ -32,7 +36,7 @@
       
       <div class="form-row">
         <div class="form-group col d-flex justify-content-end">
-          <h4>Total do pedido: 61.80</h4>
+          <h4>Total do pedido: {{ carrinhoService.totalCarrinhoCompras() | currency: 'BRL': true }}</h4>
         </div>
       </div>
       <br />

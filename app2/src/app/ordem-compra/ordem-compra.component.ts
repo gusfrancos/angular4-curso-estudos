@@ -33,6 +33,10 @@ export class OrdemCompraComponent implements OnInit {
     console.log(this.itensCarrinho)
   }
 
+  public adicionar(item: ItemCarrinho): void {
+    this.carrinhoService.adicionarQuantidade(item);
+  }
+
   public confirmarCompra(): void {
     if(this.formulario.status === 'VALID'){
       console.log('formulário valido')
