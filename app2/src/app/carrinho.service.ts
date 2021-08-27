@@ -26,8 +26,12 @@ public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
     let itemCarrinhoEncontrado = this.itens.find((item: ItemCarrinho) => item.id === itemCarrinho.id) 
 
     //o push inclui uma instancia de itemcarrinho dentro do array
-    if(itemCarrinhoEncontrado && itemCarrinhoEncontrado.quantidade !== 0) {
+    if(itemCarrinhoEncontrado) {
         itemCarrinhoEncontrado.quantidade -= 1
+
+        if(itemCarrinhoEncontrado.quantidade === 0) {
+            this.itens.splice(this.itens.indexOf(itemCarrinhoEncontrado),1)    
+        }
     }
     console.log('Diminui quantidade para:', itemCarrinho)
 }
