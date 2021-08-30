@@ -36,7 +36,9 @@ public diminuirQuantidade(itemCarrinho: ItemCarrinho): void {
     console.log('Diminui quantidade para:', itemCarrinho)
 }
 
-
+public limparCarrinho(): void {
+    this.itens = [];
+}
 
 
 
