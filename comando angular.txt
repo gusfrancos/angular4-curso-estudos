@@ -1,0 +1,143 @@
+--criacao de componentes
+ng g c shared/xpto/component -d
+ng g c relatorio-incorporacao/components/relatorio-incorporacao-list -d
+ng g c relatorio-info-bacen/components/relatorio-info-bacen-list -d
+ng g c gestao-financeira-list -d
+
+ng g c relatorio-tarifa-integral/components/relatorio-tarifa-integral-list -d
+
+--criacao Schematics
+ng g @sicoob/schematics:fnc [nome-funcionalidade]
+ng g @sicoob/schematics:fnc relatorio-contrato-tarifa-excecao -d
+
+-- Startar servidor
+npm run start:dev
+
+--Variaveis de ambiente
+NODE_OPTIONS   : --max-old-space-size=2000
+
+-- instalando node js
+node - v
+mpm -v
+
+---------------------------------------------
+-- Criar um novo projeto
+ng new nomeDoProjeto
+ng new nomeDoProjeto -p nomeDoPrefix
+
+-- Baixa as dependencias  de um novo projeto
+npm install
+
+-- Comando para criar estrutura de um server web local para testes
+-- Porta padrão 4200
+ng serve
+
+-- Comando definindo porta
+ng serve --port 9090
+
+-- Cria o arquivo package.json
+npm init (Cria o arquivo package.json)
+
+-----------------------------------------------
+npm run compile (Compilar)
+
+-----------------------------------------------
+COMPONENTES:
+criação de componentes
+ng generate componente   xxxxx
+ng g        c            xxxxx
+ng g        c            xxxxx --spec=false
+
+-----------------------------------------------
+DEPENDENCIAS:
+
+npm install @popperjs/core --save
+npm install bootstrap --save
+npm install jquery --save
+npm install tether --save  (Obsoleto...  Agora estão usando um tal de popper)
+
+npm uninstall tether
+----------------------------------------------
+BOOTSTRAP
+-- Desinstalar:npm uninstall bootstrap
+-- Instalar: npm install bootstrap --save 
+
+--------------------------------
+SERVICOS:
+ng generate service nomeServico
+
+------------------------------------
+BUILD:
+Comando para gerar um build
+
+-- Just-in-Time Compilation
+--dev
+ng build
+-- produção
+ng build --prod
+
+
+Ahead-of-Time Compilation (Informações já vão compiladas e o build não vai com um compilador) - mais otimizada
+ng build --prod  --aot=true
+ng build --prod  --aot
+
+--------------------------
+
+DEPLOY (http-server) para testes
+
+instalação:
+Baixar e instalar servidor web (http-server) para realização de testes;
+npm install http-server -g
+
+deploy:
+Entrar no diretorio dist do app
+Escrever http-server
+
+
+
+
+
+
+
+
+
+-------------
+FULL FAKE REST API
+npm install -g json-server
+json-server --watch nome-do-arquivo-jazon.json
+
+--------------------------
+Reactivex.io 
+
+--------------------------------
+internacionalização dos dados para padrão brasileiro
+npm install intl
+abrir arquivo polyfills.ts (adicionar linhas: import 'intl' / import 'intl/locale-data/jsonp/pt-Br')
+abrir arquivo app.module.ts (importar LOCALE_ID no core do angular)
+		Exemplo: import {LOCALE_ID} from '@angula/core'
+
+------------------------------------
+Atualização do angular Cli
+1 - Desinstalar o angular cli: npm uninstall -g @angular/cli
+2 - Instalar o angular cli: npm install -g @angular/cli
+
+
+			     (Adicionar um provider com o LOCALE_ID)
+		Exemplo: { provide: LOCALE_ID, useValue: 'pt-Br'}
+
+-------------------------------------------------------
+Reactive Forms
+
+- Importando modulo de reactive form
+	
+
+--------------------------------------------------------
+Estensões:
+live server: podemosir testando as alterações automaticamente no browser.
+
+
+
+
+
+
+

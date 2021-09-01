@@ -1,0 +1,38 @@
+<html>
+    <body>
+        <script>
+
+            //escopos: global, função, bloco
+            
+
+            function escopoFuncao() {
+                
+
+                if(true) {
+                    if(true) {
+                        var serie = 'Friends'
+
+                        //O Let não executa a elevação do escopo, o var vai executar 
+                        let serie2 = 'Game of Thrones'
+                        console.log('funcao: ', serie2)
+                    }
+                }   
+                
+                //aqui vai imprimir o var corretamente e o LEt vai dar erro
+                console.log('funcao: ', serie)
+                console.log('funcao: ', serie2)
+                
+            }
+
+            escopoFuncao()
+
+            {
+                
+                
+            }
+
+            
+
+        </script>
+    </body>
+</html>

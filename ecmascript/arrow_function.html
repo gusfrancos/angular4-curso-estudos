@@ -1,0 +1,77 @@
+<html>
+    <body>
+        <script>
+            let multiplicador = function() {
+                return 5 * 5
+            }
+
+            console.log(multiplicador)
+            console.log(multiplicador())
+            console.log('**************************')
+
+
+            console.log('Com arrow function')
+            let multiplicador1 = () => {
+                return 5 * 5
+            }
+
+            console.log(multiplicador1())
+            console.log('**************************')
+            
+            
+            console.log('Com arrow function com parametro')
+            let multiplicador2 = (n) => {
+                return n * n
+            }
+            console.log(multiplicador2(7))
+            console.log('**************************')
+            
+
+            console.log('Com arrow function com parametro outra sintaxe')
+            let multiplicador3 = n => {
+                return n * n
+            }
+            console.log(multiplicador3(5))
+            console.log('**************************')
+
+            console.log('Com arrow function com parametro outra sintaxe [Retorno implicito]')            
+            let multiplicador4 = n => n * n
+            console.log(multiplicador3(4))
+            console.log('**************************')
+
+            console.log('Com arrow function com parametros  [Retorno implicito]') 
+            let multiplicador5 = (n1, n2) => n1 * n2
+            console.log(multiplicador5(5, 4))
+            console.log('**************************')
+
+            /*
+            let parOuImpar = function(n) {
+                // 8 % 2 = 0 = é par
+                // 11 % 2 = 1 = é ímpar
+                if(n % 2 === 0) {
+                    return 'par'
+                } else {
+                    return 'ímpar'
+                }
+            }
+            */
+
+            /*
+            let parOuImpar = n => {
+                // 8 % 2 = 0 = é par
+                // 11 % 2 = 1 = é ímpar
+                if(n % 2 === 0) {
+                    return 'par'
+                } else {
+                    return 'ímpar'
+                }
+            }
+            */
+
+            let parOuImpar = n => n % 2 === 0 ? 'par' : 'ímpar'
+
+            console.log(parOuImpar(2048))
+
+        </script>
+    </body>
+</html>
