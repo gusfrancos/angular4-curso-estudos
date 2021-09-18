@@ -1,0 +1,10 @@
+TypeError: ig.Subject is not a constructor
+
+No angular 10:
+Mudar o import 
+
+	import { Subject } from 'rxjs/Subject';
+
+Para:
+
+import { Subject } from 'rxjs/Subject';
