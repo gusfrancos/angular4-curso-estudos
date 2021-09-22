@@ -1,8 +1,5 @@
+import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate } from '@angular/animations'
-import { Component, OnInit} from '@angular/core'
-
-
-
 
 import { Imagem } from "./imagem.model";
 @Component({
@@ -37,15 +34,14 @@ export class BannerComponent implements OnInit {
     {estado: 'escondido', url:'/assets/banner-acesso/img_5.png'},
   ] 
   ngOnInit() {
-    setTimeout(() => this.logicaRotacao(), 3000)
+    setTimeout(()=> this.logicaRotacao(),3000)
   }
-  
+
   public logicaRotacao(): void {
-    console.log(this.imagens);
     //auxilia na exibição da imagem seguinte
-    let idx:  number 
+    let idx: number
     
-    idx = 1
+    idx = 0
     //ocultar
     for(let i:number = 0; i<=4; i++) {
       if(this.imagens[i].estado === 'visivel'){
@@ -56,9 +52,7 @@ export class BannerComponent implements OnInit {
     }
     //exibir a próxima imagem
     this.imagens[idx].estado = 'visivel'
-    
-    setTimeout(() => this.logicaRotacao(), 3000)
+    setTimeout(()=> this.logicaRotacao(),3000)
   }
-  
 
 }
