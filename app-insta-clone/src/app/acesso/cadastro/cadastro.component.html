@@ -2,13 +2,13 @@
   <div class="card-body">
     <div class="card-title"></div>
     
-    <form [formGroup]="formulario" (ngSubmit)="cadastrarUsuario()">
+    <form [formGroup] = "formulario" (ngSubmit)="cadastrarUsuario()"> 
       <div class="form-group">
         <input 
           type="email" 
           class="form-control" 
           placeholder="E-mail"
-          formControName="email"
+          formControlName = "email"
         >
       </div>
       <div class="form-group">
@@ -16,7 +16,7 @@
           type="text"
           class="form-control" 
           placeholder="Nome completo"
-          formControName="nome_completo"
+          formControlName = "nome_completo"
         >
       </div>
       <div class="form-group">
@@ -24,7 +24,7 @@
           type="text"
           class="form-control" 
           placeholder="Nome de usuário"
-          formControName="nome_usuario"
+          formControlName = "nome_usuario"
         >
       </div>
       <div class="form-group">
@@ -32,7 +32,7 @@
           type="password"
           class="form-control" 
           placeholder="Senha"
-          formControName="senha"
+          formControlName = "senha"
         >
       </div>
       <button type="submit" class="btn btn-primary btn-sm btn-block">Cadastre-se</button>
