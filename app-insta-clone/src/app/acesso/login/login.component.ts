@@ -29,6 +29,11 @@ export class LoginComponent implements OnInit {
   }
 
   public autenticar(): void {
+    console.log(this.formulario)
+    console.log(this.formulario.value.email)
+    console.log(this.formulario.value.senha)
+
+
     this.autenticacao.autenticar(
       this.formulario.value.email,
       this.formulario.value.senha

@@ -9,6 +9,7 @@ export class Autenticacao {
 
     public async autenticar(email: string, senha: string): Promise<void> {
         var auth = firebaseAuth.getAuth();
+        console.log(email)
         await firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
         .then((resposta: any) => console.log(resposta))
         .catch((error: Error) => console.log(error + "  " + this.VerifyErroCode(error.name)))
