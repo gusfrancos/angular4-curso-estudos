@@ -6,20 +6,24 @@ import { getDatabase, ref, set } from "firebase/database";
 
 export class Autenticacao {
 
+    public token_id!: string;
 
     public async autenticar(email: string, senha: string): Promise<void> {
         var auth = firebaseAuth.getAuth();
         console.log(email)
         await firebaseAuth.signInWithEmailAndPassword(auth, email, senha)
-        .then((resposta: any) => console.log(resposta))
+        .then((resposta: any) => {
+            auth.currentUser?.getIdToken()
+                .then((idToken) => {
+                    this.token_id = idToken
+                })
+        })
         .catch((error: Error) => console.log(error + "  " + this.VerifyErroCode(error.name)))
         
     }
 
     public cadastrarUsuario(usuario: Usuario): Promise<any> {
 
-        console.log('User: ' + usuario.email);
-        console.log('Senha: ' + usuario.senha)
         var firebaseDB = getDatabase();
         var auth = firebaseAuth.getAuth();
         
