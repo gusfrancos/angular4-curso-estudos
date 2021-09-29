@@ -19,11 +19,16 @@ export class Autenticacao {
             auth.currentUser?.getIdToken()
                 .then((idToken) => {
                     this.token_id = idToken
+                    localStorage.setItem('idToken', idToken)
                     this.router.navigate(['/home'])
                 })
         })
         .catch((error: Error) => console.log(error + "  " + this.VerifyErroCode(error.name)))
         
+    }
+
+    public autenticado() : boolean {
+        return localStorage.getItem('idToken') !== null;
     }
 
     public cadastrarUsuario(usuario: Usuario): Promise<any> {

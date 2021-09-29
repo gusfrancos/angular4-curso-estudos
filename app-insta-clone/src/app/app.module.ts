@@ -4,6 +4,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { Autenticacao } from './services/autenticacao.service'
+import { AutenticacaoGuard } from './services/autenticacao-guard.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,7 +34,7 @@ import { ROUTES } from './app.routes'
     ReactiveFormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [ Autenticacao ],
+  providers: [ Autenticacao, AutenticacaoGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
