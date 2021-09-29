@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Injectable } from "@angular/core";
+import { Autenticacao } from "../services/autenticacao.service";
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private autenticacao: Autenticacao) {}
 
   ngOnInit(): void {
+  }
+
+  public sair() : void {
+    this.autenticacao.sair();
   }
 
 }

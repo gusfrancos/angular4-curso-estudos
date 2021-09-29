@@ -27,7 +27,18 @@ export class Autenticacao {
         
     }
 
+    public sair() : void {
+        firebaseAuth.getAuth().signOut().then(() => {
+            localStorage.removeItem('idToken');
+            this.router.navigate(['/'])
+        });
+        
+    }
+
     public autenticado() : boolean {
+        if (this.token_id === undefined) {
+            this.router.navigate(['/'])
+        }
         return localStorage.getItem('idToken') !== null;
     }
 
