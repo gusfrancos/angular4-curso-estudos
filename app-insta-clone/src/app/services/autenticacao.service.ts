@@ -1,12 +1,15 @@
 import { Usuario } from "../acesso/usuario.model";
 import * as firebaseAuth from "firebase/auth";
-
 import { getDatabase, ref, set } from "firebase/database";
+import { Injectable } from "@angular/core";
+import { Router } from "@angular/router";
 
-
+@Injectable()
 export class Autenticacao {
 
     public token_id!: string;
+
+    constructor(private router: Router) {}
 
     public async autenticar(email: string, senha: string): Promise<void> {
         var auth = firebaseAuth.getAuth();
@@ -16,6 +19,7 @@ export class Autenticacao {
             auth.currentUser?.getIdToken()
                 .then((idToken) => {
                     this.token_id = idToken
+                    this.router.navigate(['/home'])
                 })
         })
         .catch((error: Error) => console.log(error + "  " + this.VerifyErroCode(error.name)))
