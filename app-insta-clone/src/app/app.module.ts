@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { ReactiveFormsModule } from '@angular/forms';
@@ -15,7 +16,8 @@ import { CadastroComponent } from './acesso/cadastro/cadastro.component';
 import { HomeComponent } from './home/home.component';
 import { PublicacoesComponent } from './home/publicacoes/publicacoes.component';
 import { RouterModule } from '@angular/router'
-import { ROUTES } from './app.routes'
+import { ROUTES } from './app.routes';
+import { IncluirPublicacaoComponent } from './home/incluir-publicacao/incluir-publicacao.component'
 
 @NgModule({
   declarations: [
@@ -25,9 +27,11 @@ import { ROUTES } from './app.routes'
     LoginComponent,
     CadastroComponent,
     HomeComponent,
-    PublicacoesComponent
+    PublicacoesComponent,
+    IncluirPublicacaoComponent
   ],
   imports: [
+    NgbModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
