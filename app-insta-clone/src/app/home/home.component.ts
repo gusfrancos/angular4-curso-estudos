@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Injectable } from "@angular/core";
-import { Autenticacao } from "../services/autenticacao.service";
+import { Autenticacao } from '../services/autenticacao.service';
+import { Bd } from '../services/bd.service'
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormControl } from '@angular/forms'
 
 @Component({
   selector: 'app-home',
@@ -10,9 +12,13 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class HomeComponent implements OnInit {
 
+  public formulario: FormGroup = new FormGroup({
+    'titulo': new FormControl(null)
+  })
+
   closeResult: string | undefined;
 
-  constructor(private autenticacao: Autenticacao, private modalService: NgbModal) {}
+  constructor(private autenticacao: Autenticacao, private modalService: NgbModal, private bd: Bd) {}
 
   ngOnInit(): void {
   }
@@ -37,6 +43,10 @@ export class HomeComponent implements OnInit {
     } else {
       return  `with: ${reason}`;
     }
+  }
+
+  public publicar(): void {
+    this.bd.publicar()
   }
 
 }

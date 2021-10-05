@@ -4,11 +4,9 @@
   <div class="container">
     <div class="logo"></div>
     <div>
-      <div class="add-post" data-toggle="modal" data-target="#exampleModal"></div>
-
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Launch demo modal
-      </button>
+      <div class="add-post"  (click)="open(mymodal)" data-toggle="modal" data-target="#exampleModal"></div>
+      <!--<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>-->
+      
       
       <a href="#" (click)="sair()" style="margin-left: 25px;">Sair</a>
     </div>
@@ -18,24 +16,29 @@
 <br /><br /><br />
 <div class="container">
   <app-publicacoes></app-publicacoes>
-  <!--<app-incluir-publicacao></app-incluir-publicacao>-->
-  <h1>Angular 10 Bootstrap Modal Popup Example</h1>
-   
-<button class="btn btn-lg btn-outline-primary" (click)="open(mymodal)">Open My Modal</button>
-   
+ 
+    
 <ng-template #mymodal let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Bootstrap Modal</h4>
-    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-      <span aria-hidden="true">×</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    This is example from ItSolutionStuff.com
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
-  </div>
+  <form [formGroup]="formulario" (ngSubmit)="publicar()">
+    <div class="modal fade" id="mymodal" tabindex="-1" role="dialog">
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">×</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <h4 class="modal-title" id="modal-basic-title">Criar uma publicação</h4>
+      <br>
+      <input 
+          type="text"
+          placeholder="Título da publicação"
+          class="form-control"
+          formControlName="titulo">
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fechar</button>
+      <button type="submit" class="btn btn-primary"  >Publicar</button>
+    </div>
+  </form>
 </ng-template>
 </div>
 
