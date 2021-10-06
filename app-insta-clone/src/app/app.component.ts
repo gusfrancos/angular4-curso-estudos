@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+import { getFirestore, collection, getDocs } from "firebase/firestore/lite"
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     // Initialize Firebase
     var app = firebase.initializeApp(firebaseConfig);
+    var appStore = getFirestore(app);
      getAnalytics(app);
     
 

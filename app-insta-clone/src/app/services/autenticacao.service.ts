@@ -3,6 +3,8 @@ import * as firebaseAuth from "firebase/auth";
 import { getDatabase, ref, set } from "firebase/database";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import * as appStore from "firebase/storage"
+
 
 @Injectable()
 export class Autenticacao {
@@ -46,6 +48,7 @@ export class Autenticacao {
 
         var firebaseDB = getDatabase();
         var auth = firebaseAuth.getAuth();
+      
         
         return firebaseAuth.createUserWithEmailAndPassword(firebaseAuth.getAuth(), usuario.email, usuario.senha)
         .then((userCredential) => { 

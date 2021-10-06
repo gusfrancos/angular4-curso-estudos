@@ -4,6 +4,7 @@ import { Autenticacao } from '../services/autenticacao.service';
 import { Bd } from '../services/bd.service'
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormControl } from '@angular/forms'
+import * as firebaseAuth from "firebase/auth";
 
 @Component({
   selector: 'app-home',
@@ -12,15 +13,24 @@ import { FormGroup, FormControl } from '@angular/forms'
 })
 export class HomeComponent implements OnInit {
 
+  public  email: string | undefined;
+  public imagem: any
+
+
+
   public formulario: FormGroup = new FormGroup({
     'titulo': new FormControl(null)
   })
 
   closeResult: string | undefined;
 
-  constructor(private autenticacao: Autenticacao, private modalService: NgbModal, private bd: Bd) {}
+   constructor(private autenticacao: Autenticacao, private modalService: NgbModal, private bd: Bd) {}
 
   ngOnInit(): void {
+    firebaseAuth.getAuth().onAuthStateChanged((user) => {
+      
+      this.email = user?.email === null ? '' : user?.email;
+    })
   }
 
   public sair() : void {
@@ -46,7 +56,20 @@ export class HomeComponent implements OnInit {
   }
 
   public publicar(): void {
-    this.bd.publicar()
+    console.log('Publicando post...')
+    console.log(this.imagem[0])
+
+    this.bd.publicar({
+      email: this.email,
+      titulo: this.formulario.value.titulo,
+      imagem: this.imagem[0]
+    })
+  }
+
+  public preparaImagemUpload(event: Event): void {
+    console.log('preparando imagem....')
+    console.log((<HTMLInputElement>event.target).files)
+    this.imagem = (<HTMLInputElement>event.target).files
   }
 
 }

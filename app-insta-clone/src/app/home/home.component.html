@@ -33,6 +33,13 @@
           placeholder="Título da publicação"
           class="form-control"
           formControlName="titulo">
+
+      <input 
+        type="file"
+        class="form-control"
+        accept="image/*"
+        (change) = "preparaImagemUpload($event)"
+      />
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Fechar</button>
